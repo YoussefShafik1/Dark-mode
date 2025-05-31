@@ -1,0 +1,122 @@
+/* Import Roboto font (already linked in HTML) */
+body {
+    /* Define CSS variables for light theme (default) */
+    --background-color: #ffffff;
+    --text-color: #333333;
+
+    font-family: 'Arial', sans-serif; /* Body text Arial */
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
+
+/* Dark mode specific variables */
+body.dark-mode {
+    --background-color: #333333;
+    --text-color: #ffffff;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background for container, adapts to theme */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative; /* For toggle button positioning */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.dark-mode .container {
+    background-color: rgba(0, 0, 0, 0.2); /* Darker subtle background for container in dark mode */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif; /* Headings Roboto */
+    font-weight: 700; /* Bold */
+    color: var(--text-color); /* Inherit text color from variables */
+    margin-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+h1 {
+    font-size: 24px; /* Heading size */
+}
+
+p, ul, li {
+    font-size: 16px; /* Body text size */
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Inherit text color from variables */
+    transition: color 0.5s ease;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff; /* A nice blue for the button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Adjust button color for dark mode to ensure contrast */
+body.dark-mode .theme-toggle {
+    background-color: #28a745; /* A green for dark mode button */
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: #218838;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 14px;
+    transition: color 0.5s ease;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p, ul, li {
+        font-size: 14px;
+    }
+}
